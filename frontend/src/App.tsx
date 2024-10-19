@@ -5,6 +5,7 @@ import Login from "./features/users/Login";
 import { Typography } from "@mui/material";
 import Photos from "./features/photos/containers/Photos";
 import CreatePhoto from "./features/photos/containers/CreatePhoto";
+import UserPhotos from "./features/photos/containers/UserPhotos";
 
 const App = () => {
 
@@ -13,14 +14,15 @@ const App = () => {
       <header>
         <AppToolbar />
       </header>
-      
+
       <main>
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/" element={<Photos/>}/>
-          <Route path="/create" element={<CreatePhoto/>}/>
+          <Route path="/" element={<Photos />} />
+          <Route path="/photos/:id" element={<UserPhotos />} />
+          <Route path="/create" element={<CreatePhoto />} />
 
           <Route
             path="*"

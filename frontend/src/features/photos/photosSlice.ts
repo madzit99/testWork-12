@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Photo } from "../../type";
-import { fetchPhotos } from "./photosThunk";
+import { fetchPhotos, fetchPhotosByUser } from "./photosThunk";
 
 export interface PhotoState {
   photos: Photo[];
@@ -28,6 +28,17 @@ export const photoSlice = createSlice({
         state.photos = photos;
       })
       .addCase(fetchPhotos.rejected, (state) => {
+        state.fetchLoading = false;
+      });
+    builder
+      .addCase(fetchPhotosByUser.pending, (state) => {
+        state.fetchLoading = true;
+      })
+      .addCase(fetchPhotosByUser.fulfilled, (state, { payload: photos }) => {
+        state.fetchLoading = false;
+        state.photos = photos;
+      })
+      .addCase(fetchPhotosByUser.rejected, (state) => {
         state.fetchLoading = false;
       });
   },

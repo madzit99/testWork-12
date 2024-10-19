@@ -61,6 +61,11 @@ const UserMenu: React.FC<Props> = ({ user }) => {
             <Link to="/create">Загрузить изображение</Link>
           </Typography>
         </MenuItem>
+        <MenuItem>
+          <Typography variant="h5" component="div" sx={{ textAlign: "center" }}>
+            <Link to={`/photos/${user._id}`}>Моя галерея</Link>
+          </Typography>
+        </MenuItem>
         <MenuItem onClick={handleLogout}>
           <Typography variant="h5" component="div" sx={{ textAlign: "center" }}>
             Выход

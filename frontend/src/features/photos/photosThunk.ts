@@ -11,6 +11,16 @@ export const fetchPhotos = createAsyncThunk<Photo[]>(
   }
 );
 
+export const fetchPhotosByUser = createAsyncThunk<Photo[], string>(
+  "photos/fetchUserPhotos",
+  async (userId) => {
+    const response = await axiosApi.get<Photo[]>(
+      `/photos?user=${userId}`
+    );
+    return response.data;
+  }
+);
+
 export const createPhoto = createAsyncThunk<
   void,
   PhotoMutation,
