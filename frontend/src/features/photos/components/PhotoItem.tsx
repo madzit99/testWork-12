@@ -56,7 +56,14 @@ const PhotoItem: React.FC<Props> = ({ photo }) => {
   let cardImage = API_URL + "/" + photo.photo;
   return (
     <Grid item lg={3}>
-      <Box sx={{ border: "none", mb: "40px" }}>
+      <Box
+        sx={{
+          border: "2px solid blue",
+          mb: "40px",
+          borderRadius: "20px",
+          padding: "10px",
+        }}
+      >
         <CardMedia
           component="img"
           height="360"
@@ -84,7 +91,11 @@ const PhotoItem: React.FC<Props> = ({ photo }) => {
           </Link>
         </Typography>
         {user?._id === photo.user._id || user?.role === "admin" ? (
-          <Button onClick={handleDelete}  sx={{display: "block", mx: "auto",}} variant="contained">
+          <Button
+            onClick={handleDelete}
+            sx={{ display: "block", mx: "auto", marginTop: "15px" }}
+            variant="contained"
+          >
             Удалить
           </Button>
         ) : (

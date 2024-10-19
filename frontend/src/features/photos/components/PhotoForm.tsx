@@ -12,9 +12,14 @@ const PhotoForm: React.FC<Props> = ({ onSubmit }) => {
     title: "",
     photo: null,
   });
+  const [helper, setHelper] = useState("");
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!state.photo) {
+        setHelper("Загрузите фото!")
+      return;
+    }
     onSubmit(state);
   };
 
@@ -34,7 +39,6 @@ const PhotoForm: React.FC<Props> = ({ onSubmit }) => {
       }));
     }
   };
-
 
   return (
     <form autoComplete="off" onSubmit={submitFormHandler}>
@@ -62,9 +66,10 @@ const PhotoForm: React.FC<Props> = ({ onSubmit }) => {
 
         <Grid item xs>
           <FileInput
-            label="Изображение "
+            label="Изображение"
             name="photo"
             onChange={fileInputChangeHandler}
+            helper={helper}
           />
         </Grid>
 

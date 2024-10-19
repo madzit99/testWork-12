@@ -39,6 +39,10 @@ const UserPhotos = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          border: "2px solid blue",
+          marginBottom: "20px",
+          padding: "10px",
+          borderRadius: "10px"
         }}
       >
         <Typography
