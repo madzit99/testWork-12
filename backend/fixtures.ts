@@ -1,4 +1,5 @@
 import config from "./config";
+import Photo from "./models/Photo";
 import User from "./models/User";
 import mongoose from "mongoose";
 
@@ -17,7 +18,7 @@ const run = async () => {
   await mongoose.connect(config.database);
   const db = mongoose.connection;
 
-  const collections = ["users"];
+  const collections = ["users", 'photos'];
 
   for (const collectionName of collections) {
     await dropCollection(db, collectionName);
@@ -42,6 +43,12 @@ const run = async () => {
       avatar: "fixtures/djigan.jpeg",
     }
   );
+
+  await Photo.create({
+    user: admin,
+    title: "jigan",
+    photo: "fixtures/djigan.jpeg"
+  })
 
   
 

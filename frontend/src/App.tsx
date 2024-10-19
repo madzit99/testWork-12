@@ -3,6 +3,7 @@ import AppToolbar from "./UI/AppToolbar/AppToolbar";
 import Register from "./features/users/Register";
 import Login from "./features/users/Login";
 import { Typography } from "@mui/material";
+import Photos from "./features/photos/containers/Photos";
 
 const App = () => {
 
@@ -16,6 +17,8 @@ const App = () => {
         <Routes>
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+
+          <Route path="/" element={<Photos/>}/>
 
           <Route
             path="*"

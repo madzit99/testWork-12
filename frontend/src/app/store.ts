@@ -11,6 +11,7 @@ import {
   persistReducer,
 } from "redux-persist";
 import persistStore from "redux-persist/es/persistStore";
+import { photosReducer } from "../features/photos/photosSlice";
 
 const usersPersistConfig = {
   key: "store:users",
@@ -20,6 +21,7 @@ const usersPersistConfig = {
 
 const rootReducer = combineReducers({
   users: persistReducer(usersPersistConfig, usersReducer),
+  photos: photosReducer,
 });
 
 export const store = configureStore({
