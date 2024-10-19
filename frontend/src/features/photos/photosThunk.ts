@@ -39,3 +39,17 @@ export const createPhoto = createAsyncThunk<
     console.error(e);
   }
 });
+
+
+
+export const deletePhoto = createAsyncThunk<
+  void,
+  string,
+  { state: RootState }
+>("photos/delete", async (photoId: string) => {
+  try {
+      await axiosApi.delete(`/photos/${photoId}`,);
+  } catch (e) {
+    console.error(e);
+  }
+});

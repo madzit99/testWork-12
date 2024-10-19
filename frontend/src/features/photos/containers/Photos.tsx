@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useAppDispatch } from "../../../app/hooks";
-import { selectUser } from "../../users/usersSlice";
 import { fetchPhotos } from "../photosThunk";
 import { useSelector } from "react-redux";
 import { selectPhotos, selectPhotosLoading } from "../photosSlice";
@@ -11,7 +10,6 @@ import PhotoItem from "../components/PhotoItem";
 const Photos = () => {
   const dispatch = useAppDispatch();
   const photos = useSelector(selectPhotos);
-  const user = useSelector(selectUser);
   const loading = useSelector(selectPhotosLoading);
 
   useEffect(() => {
@@ -34,7 +32,7 @@ const Photos = () => {
       {loading ? (
         <Preloader loading={loading} />
       ) : photos.length > 0 ? (
-        <Grid container spacing={4} alignItems="center">
+        <Grid container spacing={2} alignItems="flexStart">
           {photos.map((photo) => (
               <PhotoItem key={photo._id} photo={photo} />
           ))}

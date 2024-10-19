@@ -73,7 +73,7 @@ photosRouter.post(
 photosRouter.delete(
   "/:id",
   auth,
-  permit("admin"),
+  permit("admin", "user"),
   async (req: RequestWithUser, res: Response, next: NextFunction) => {
     try {
       const photoId = req.params.id;
@@ -87,11 +87,9 @@ photosRouter.delete(
       res.send({ message: "Фото удалено!" });
       return;
     } catch (error) {
-       return next(error);
+      return next(error);
     }
   }
 );
-
-
 
 export default photosRouter;
