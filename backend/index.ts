@@ -3,6 +3,7 @@ import express from "express";
 import config from "./config";
 import mongoose from "mongoose";
 import usersRouter from "./routers/users";
+import photosRouter from "./routers/photos";
 
 const app = express();
 const port = 8000;
@@ -12,6 +13,7 @@ app.use(express.static("public"));
 app.use(cors());
 
 app.use("/users", usersRouter);
+app.use("/photos", photosRouter);
 
 const run = async () => {
   await mongoose.connect(config.database);
