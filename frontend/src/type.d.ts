@@ -50,3 +50,8 @@ export interface Photo {
   title: string;
   photo: string;
 }
+ 
+export interface PhotoMutation {
+    title: string,
+    photo: File | null
+}

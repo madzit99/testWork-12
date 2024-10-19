@@ -4,6 +4,7 @@ import Register from "./features/users/Register";
 import Login from "./features/users/Login";
 import { Typography } from "@mui/material";
 import Photos from "./features/photos/containers/Photos";
+import CreatePhoto from "./features/photos/containers/CreatePhoto";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
 
           <Route path="/" element={<Photos/>}/>
+          <Route path="/create" element={<CreatePhoto/>}/>
 
           <Route
             path="*"
