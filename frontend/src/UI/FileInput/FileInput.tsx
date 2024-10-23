@@ -33,7 +33,7 @@ const FileInput: React.FC<Props> = ({ onChange, name, label, helper }) => {
 
   return (
     <>
-      <TextField
+      <input
         type="file"
         name={name}
         style={{ display: "none" }}
